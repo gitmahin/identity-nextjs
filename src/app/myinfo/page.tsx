@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios, { AxiosError } from 'axios'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
@@ -29,7 +29,7 @@ export default function myInfo() {
   const [error, setError] = useState(false)
   const [verifyPassPop, setVerifyPassPop] = useState(false)
 
-  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof passwordSchema>>({
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm<z.infer<typeof passwordSchema>>({
     resolver: zodResolver(passwordSchema),
     defaultValues: {
       password: ""
@@ -120,6 +120,12 @@ export default function myInfo() {
     }
   }
 
+  useEffect(() =>{
+    if(verifyPassPop == false){
+      setValue("password", "")
+    }
+  }, [verifyPassPop])
+
   return (
     <div className='wrapper'>
       <div className="myinfo-container-wrapper">
@@ -138,7 +144,7 @@ export default function myInfo() {
               <li>ID: <span>{user?._id}</span></li>
               <li>Account created at: <span>{user?.accountCreatedAt}</span></li>
               <li onClick={() => setPopup(true)} id='log-out'>Log out</li>
-              <li onClick={() => setVerifyPassPop(true)} id='log-out'>Delete My Account</li>
+              <li onClick={() => setVerifyPassPop(true)} id='del-ac'>Delete My Account</li>
             </ul>
           </div>
         </div>
@@ -160,7 +166,7 @@ export default function myInfo() {
       {verifyPassPop == true ? <div className="verify-pass-pop-wrapper">
         <form className='v-p-del-form' onSubmit={handleSubmit(onSubmit)}>
           <h2>Verify it's you!</h2>
-          <input required type="text" placeholder='Enter your email' {...register("password")} />
+          <input required type="text" placeholder='Enter your password' {...register("password")} />
           {errors.password && <p className="error-status">{errors.password.message}</p>}
           <div className="verify-pass-del-btn">
             <button id='verify-pass-del-btn' onClick={() => setVerifyPassPop(false)} >Cancel</button>

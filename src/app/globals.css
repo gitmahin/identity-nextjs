@@ -371,7 +371,13 @@ input:focus {
 #log-out {
   font-weight: bold;
   color: #e82a2a;
-  background-color: #e82a2a30;
+  cursor: pointer;
+}
+
+#del-ac{
+  font-weight: bold;
+  color: #e82a2a;
+  background-color: #e82a2a36;
   cursor: pointer;
 }
 
@@ -606,3 +612,4 @@ input:focus {
 .join-now p{
   color: #ffffff;
 }
+
