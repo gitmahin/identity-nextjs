@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
+body {
   background-color: black;
 }
 
@@ -374,7 +374,7 @@ input:focus {
   cursor: pointer;
 }
 
-#del-ac{
+#del-ac {
   font-weight: bold;
   color: #e82a2a;
   background-color: #e82a2a36;
@@ -496,7 +496,7 @@ input:focus {
 }
 
 .pub-right p:nth-child(2) {
-  
+
   font-weight: 500;
   font-size: 14px;
   padding: 0px 5px;
@@ -525,7 +525,7 @@ input:focus {
   width: 300px;
   height: fit-content;
   border: 1px solid #53535334;
-  padding: 20px 20px;
+  padding: 30px 20px;
   border-radius: 10px;
   position: absolute;
   top: 50%;
@@ -575,15 +575,15 @@ input:focus {
   margin-bottom: 20px;
 }
 
-#eyeinput{
+#eyeinput {
   display: none;
 }
 
-#pass{
+#pass {
   position: relative;
 }
 
-#eyelabel{
+#eyelabel {
   position: absolute;
   top: 8px;
   right: 10px;
@@ -598,18 +598,23 @@ input:focus {
   user-select: none;
 }
 
-.join-now{
+.join-now {
   background: linear-gradient(to right, #2761ff3c, #e134ad3c);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
-.join-now h2{
+.join-now h2 {
   color: white !important;
 
 }
 
-.join-now p{
+.join-now p {
   color: #ffffff;
 }
 
+
+
+.v-pass-error{
+  padding: 5px 0px;
+}

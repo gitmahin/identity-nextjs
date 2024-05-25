@@ -21,3 +21,6 @@ npm install react-hot-toast
 ```
 npm install @react-email/components
 ```
+```
+npm i @hookform/resolvers
+```

@@ -63,6 +63,7 @@ const verifyPage = () => {
             <div className="verify-box">
               <div className="verify-header">
                 <h1>Verify your email</h1>
+                <p className='text-white text-center mb-3'>A verification code sent to your email</p>
               </div>
               <div className="verify-code-box">
                 <input required type="text" placeholder='Enter 6 digit code' id='verify-code-input' {...register("verifyCode")} />

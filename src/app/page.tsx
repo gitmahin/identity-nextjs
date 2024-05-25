@@ -67,7 +67,7 @@ export default function Home() {
             Beautiful UI
           </h2>
           <p className="m-0 text-slate-500 max-w-[30ch] text-sm opacity-50">
-              Seamless Interactions, Unmatched Experience.
+            Seamless Interactions, Unmatched Experience.
           </p>
         </a>
 
