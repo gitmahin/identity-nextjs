@@ -1,10 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import toast from 'react-hot-toast';
 import axios, { AxiosError } from 'axios'
 import { signUpSchema } from '@/zod-schemas/signup-schema';
-import { z } from "zod"
+import { any, z } from "zod"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useDebounceCallback } from 'usehooks-ts'
 import { useRouter } from 'next/navigation';
@@ -20,6 +20,18 @@ export default function signupPage() {
   const debounced = useDebounceCallback(setUsername, 500)
   const router = useRouter()
 
+  const showPass = () => {
+    let pass = document.getElementById('pass') as HTMLInputElement
+    let eyespan = document.getElementById('eyespan') as HTMLInputElement
+    if (pass!.type == 'password') {
+      pass!.type = 'text'
+      eyespan!.innerHTML = 'Show'
+    } else {
+      pass!.type = 'password'
+      eyespan!.innerHTML = 'Hide'
+    }
+  }
+
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -27,9 +39,11 @@ export default function signupPage() {
       lastName: "",
       username: "",
       email: "",
-      password: ""
+      password: "",
+      cpass: ""
     }
   })
+
 
   useEffect(() => {
     const checkUsername = async () => {
@@ -134,15 +148,23 @@ export default function signupPage() {
               {errors.email && <p className="error-status">{errors.email.message}</p>}
             </div>
             <div className="input">
-              <input required type="password" placeholder='Enter your password' {...register("password")} />
+              <input required type="password" id='pass' placeholder='Enter your password' {...register("password")} />
               {errors.password && <p className="error-status">{errors.password.message}</p>}
+              <input type="checkbox" id='eyeinput' />
+              <label id="eyelabel" onClick={showPass} htmlFor="eyeinput"><span id='eyespan' className="material-symbols-outlined">
+                Hide
+              </span></label>
+            </div>
+            <div className="input">
+              <input placeholder='Confirm password' type="password" required {...register('cpass')} />
+              {errors.cpass && <p className="error-status">{errors.cpass.message}</p>}
             </div>
             <button type="submit" id='submit' disabled={isSubmitting == true ? true : false}>
               {isSubmitting == true ? "Loading..." : "Sign up"}
             </button>
           </div>
         </div>
-        {isSubmitting == true ? <Loader/> : ""}
+        {isSubmitting == true ? <Loader /> : ""}
 
       </form>
     </div>
