@@ -111,6 +111,7 @@ export default function myInfo() {
           email: user?.email,
         },
       })
+      adminData()
       toast.success("Account has been successfully DELETED")
     } catch (error) {
       toast.error("Something went wrong")

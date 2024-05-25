@@ -65,6 +65,7 @@ body {
   backdrop-filter: blur(30px);
   border: 1px solid #ffffff12;
   box-shadow: 0px 10px 30px #2761ff10;
+  padding: 20px 0px;
 }
 
 .left-container {
