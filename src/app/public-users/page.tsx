@@ -4,6 +4,7 @@ import axios, { AxiosError } from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import Loader from '../components/Loader/page'
+import Link from 'next/link'
 
 interface User {
     email: string;
@@ -57,18 +58,20 @@ export default function publicUsersPage() {
                 <div className="pub-list-box">
                     <ul>
                         {users.map((user) => {
-                            return <li>
-                                <div className="pub-left">
-                                    <h2>{user.firstName} {user.lastName}</h2>
-                                    <p>@{user.username}</p>
-                                    <p>Joined: {user.accountCreatedAt}</p>
-                                </div>
-                                <div className="pub-right">
-                                    <p>{user.email}</p>
-                                    <p className={user.isVerified == true ? "verified" : "unverified"}>{user.isVerified == true ? "Verified" : "Unverified"}</p>
-                                </div>
+                            return <Link href={`/public-users/user/${user._id}`}>
+                                <li >
+                                    <div className="pub-left">
+                                        <h2>{user.firstName} {user.lastName}</h2>
+                                        <p>@{user.username}</p>
+                                        <p>Joined: {user.accountCreatedAt}</p>
+                                    </div>
+                                    <div className="pub-right">
+                                        <p>{user.email}</p>
+                                        <p className={user.isVerified == true ? "verified" : "unverified"}>{user.isVerified == true ? "Verified" : "Unverified"}</p>
+                                    </div>
 
-                            </li>
+                                </li>
+                            </Link>
 
                         })}
                     </ul>

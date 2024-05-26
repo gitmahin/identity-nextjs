@@ -462,6 +462,10 @@ input:focus {
   flex-direction: column;
 }
 
+.pub-list-box ul a{
+  width: 100%;
+}
+
 .pub-list-box ul li {
   width: 100%;
   border: 1px solid #ffffff3e;
@@ -617,4 +621,50 @@ input:focus {
 
 .v-pass-error{
   padding: 5px 0px;
+}
+
+.user-container{
+  width: 1200px;
+  margin: auto;
+}
+
+.user-box{
+  width: 100%;
+}
+
+.user-header{
+  background-color: #20202054;
+  border-bottom: 1px solid #ffffff3d;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+}
+
+.user-header h2{
+  color:white;
+  font-size: 30px;
+}
+
+.user-header p:nth-child(2){
+  color: #2760ff;
+}
+
+.user-header p:nth-child(3){
+  font-size: 18px;
+  font-weight: bold;
+  color: #09da9b;
+  margin-top: 10px;
+}
+
+.user-header p:nth-child(3) span{
+  color: rgb(172, 172, 172);
+}
+
+.user-verify-capsule{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  border-bottom-left-radius: 10px;
 }
