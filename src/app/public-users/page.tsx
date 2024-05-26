@@ -58,7 +58,7 @@ export default function publicUsersPage() {
                 <div className="pub-list-box">
                     <ul>
                         {users.map((user) => {
-                            return <Link href={`/public-users/user/${user._id}`}>
+                            return <Link key={user._id} href={`/public-users/user/${user._id}`}>
                                 <li >
                                     <div className="pub-left">
                                         <h2>{user.firstName} {user.lastName}</h2>
