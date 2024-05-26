@@ -4,13 +4,12 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import toast from 'react-hot-toast';
 import axios, { AxiosError } from 'axios'
 import { signUpSchema } from '@/zod-schemas/signup-schema';
-import { any, z } from "zod"
+import { z } from "zod"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useDebounceCallback } from 'usehooks-ts'
 import { useRouter } from 'next/navigation';
 import { ApiResponse } from '@/response/apiResponse';
-import Link from 'next/link';
-import Loader from '../components/Loader/page';
+import Loader from '../components/Loader';
 
 export default function signupPage() {
   const [username, setUsername] = useState("")

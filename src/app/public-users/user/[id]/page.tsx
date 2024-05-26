@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { ApiResponse } from '@/response/apiResponse';
 import toast from 'react-hot-toast';
-import Loader from '@/app/components/Loader/page';
+import Loader from '@/app/components/Loader';
 
 interface User {
   email: string;

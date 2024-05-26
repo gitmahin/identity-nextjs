@@ -3,8 +3,8 @@ import { ApiResponse } from '@/response/apiResponse'
 import axios, { AxiosError } from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import Loader from '../components/Loader/page'
 import Link from 'next/link'
+import Loader from '../components/Loader'
 
 interface User {
     email: string;

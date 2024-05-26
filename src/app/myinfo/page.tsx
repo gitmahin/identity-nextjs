@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios, { AxiosError } from 'axios'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-import Loader from '../components/Loader/page'
+import Loader from '../components/Loader'
 import { ApiResponse } from '@/response/apiResponse'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -165,7 +165,7 @@ export default function myInfo() {
       {verifyPassPop == true ? <div className="verify-pass-pop-wrapper">
         <form className='v-p-del-form' onSubmit={handleSubmit(onSubmit)}>
           <h2>Verify it's you!</h2>
-          <input required type="text" placeholder='Enter your password' {...register("password")} />
+          <input className='text-center' required type="text" placeholder='Enter your password' {...register("password")} />
           {errors.password && <p className="error-status v-pass-error">{errors.password.message}</p>}
           <div className="verify-pass-del-btn">
             <button id='verify-pass-del-btn' onClick={() => setVerifyPassPop(false)} >Cancel</button>

@@ -1,5 +1,5 @@
 "use client"
-import Loader from '@/app/components/Loader/page'
+import Loader from '@/app/components/Loader'
 import { ApiResponse } from '@/response/apiResponse'
 import { verifyEmailSchema } from '@/zod-schemas/verify-schema'
 import { zodResolver } from '@hookform/resolvers/zod'

@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import axios, { AxiosError } from 'axios'
 import { loginSchema } from '@/zod-schemas/login-schema';
 import { z } from "zod"
-import Loader from '../components/Loader/page';
+import Loader from '../components/Loader';
 
 export default function loginPage(){
   const [isSubmitting, setIsSubmitting] = useState(false)
