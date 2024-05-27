@@ -5,7 +5,7 @@ import { verifyEmailSchema } from '@/zod-schemas/verify-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { useParams, useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { cache, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
@@ -27,7 +27,8 @@ const verifyPage = () => {
       setIsVerifing(true)
       const response = await axios.post("/api/verify-email", {
         username: params.username,
-        code: data.verifyCode
+        code: data.verifyCode,
+        cache: "no-cache"
       })
       toast.success("Verified successfully")
       router.push("/login")
@@ -44,6 +45,9 @@ const verifyPage = () => {
             break
           case 410:
             toast.error("Verification code expired")
+            break
+          case 429:
+            toast.error("Too many requests. Please try again after 1 minute")
             break
           default:
             toast.error("Something went wrong")

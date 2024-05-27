@@ -24,3 +24,9 @@ npm install @react-email/components
 ```
 npm i @hookform/resolvers
 ```
+```
+npm i @upstash/redis
+```
+```
+npm i @upstash/ratelimit
+```

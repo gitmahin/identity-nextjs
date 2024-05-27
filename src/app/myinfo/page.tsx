@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react'
+import React, { cache, useEffect, useRef, useState } from 'react'
 import axios, { AxiosError } from 'axios'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
@@ -75,7 +75,8 @@ export default function myInfo() {
       setIsFetchingData(true)
       await axios.post("/api/check-password", {
         email: user?.email,
-        password: data.password
+        password: data.password,
+        cache: "no-cache"
       })
       setDeletePopup(true)
       setVerifyPassPop(false)
@@ -90,6 +91,9 @@ export default function myInfo() {
             break
           case 500:
             toast.error("Server is under maintainance. Please try again later")
+            break
+          case 429:
+            toast.error("Too many requests. Please try again after 1 minute")
             break
           default:
             toast.error(axiosError.response.data.message ?? "Something went wrong");
