@@ -7,7 +7,11 @@ import Header from "./components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "identity",
+  title: {
+    absolute:"",
+    default:"Identity - NextJs",
+    template:"%s | Identity"
+  },
   description: "NextJS App with full Authentication. Share your identity to people and explore other identities.",
 };
 
